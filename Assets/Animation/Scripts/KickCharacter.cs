@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 using System.Collections;
 
 public class KickCharacter : MonoBehaviour
@@ -22,9 +21,7 @@ public class KickCharacter : MonoBehaviour
     private float currentTargetSpeed;
     private bool punching;
 
-    public float speed { get; private set; }
-
-    public event Action OnKick;
+    private float speed;
 
     private void Awake()
     {
@@ -55,8 +52,6 @@ public class KickCharacter : MonoBehaviour
 
     private IEnumerator Punch()
     {
-        OnKick?.Invoke();
-
         punching = true;
 
         yield return new WaitForSeconds(punchDuration);
